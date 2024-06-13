@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  justify-content: align;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+
+.app-container {
+  text-align: center;
+}
+
+.error-message {
+  text-align: center;
+  background-color: #ffebee; /* Light red background for error message */
+  padding: 20px;
+  border: 1px solid #f44336; /* Red border */
+  border-radius: 5px;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.blog-posts {
+  text-align: center;
+}
+
+.post {
+  margin-bottom: 05px;
+}
