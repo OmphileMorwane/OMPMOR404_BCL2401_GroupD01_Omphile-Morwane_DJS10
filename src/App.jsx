@@ -32,6 +32,19 @@ export default function App() {
     );
   }
 
+return (  
+  <div className="blog-posts">
+      {posts.map((post, index) => (
+        <div key={post.id} className="post">
+          <h2>
+            {index + 1}.{post.title}
+          </h2>
+          <p>{post.body}</p>
+        </div>
+      ))}
+    </div>
+  );
+
 };
 
     
