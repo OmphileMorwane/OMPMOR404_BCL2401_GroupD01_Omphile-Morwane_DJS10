@@ -24,6 +24,14 @@ export default function App() {
     fetchPosts();
   }, []);
 
+  if (error) {
+    return (
+      <div className="error-message">
+        {<img src="./images/error-message.png" />}
+      </div>
+    );
+  }
+
 };
 
     
