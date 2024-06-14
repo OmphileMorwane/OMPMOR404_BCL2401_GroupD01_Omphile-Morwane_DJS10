@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 export default function App() {
-  // State variables for storing posts and error message
+  // State variables for storing posts, error message, and loading status
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   //useEffectr hook to fetch data from the API when the component mounts
   useEffect(() => {
@@ -23,16 +24,21 @@ export default function App() {
 
         //Update posts state with fetched data
         setPosts(data);
+        setLoading(false); // Set loading to false after data is fetched
       } catch (error) {
         // Catch any errors that occur during the fetch process
         setError(error.message);
+        setLoading(false); // Set loading to false if an error occurs
       }
     };
     // Call the fetchPosts function when components mounts
     fetchPosts();
   }, []); // Empty dependency array ensures useEffect runs only once on mount
 
-// Render error message if error state is not null
+  if (loading) {
+    return <div></div>;
+  }
+  // Render error message if error state is not null
   if (error) {
     return (
       <div className="error-message">
@@ -40,7 +46,7 @@ export default function App() {
       </div>
     );
   }
-// Render posts if no error occurred
+  // Render posts if no error occurred
   return (
     <div className="app-container">
       <h1>Posts</h1> {/*Main heading for the blog posts*/}
